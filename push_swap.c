@@ -5,38 +5,35 @@
 
 int	main(int argc, char **argv)
 {
+	t_data	data;
 	t_stack	stack;
-	char	*str;
-	char	c;
 	int		i;
-	size_t	len;
-	int		res;
 
+	data.stack_a.length = argc - 1;
+	data.stack_a.size = data.stack_a.length * (sizeof(int));
+	data.stack_a.nums = malloc(data.stack_a.size);
 	i = 0;
-	while (i < argc - 1)
+	while (i < data.stack_a.length)
 	{
-
-		i++;
-	}
-
-	str = "12345";
-	len = ft_strlen(str);
-
-	stack.nums = malloc(len * sizeof(int));
-	stack.size = len;
-
-	i = 0;
-	while (str[i])
-	{
-		c = str[i];
-		stack.nums[i] = ft_atoi(&c);
+		data.stack_a.nums[i] = ft_atoi(argv[i + 1]);
 		i++;
 	}
 	i = 0;
-	while (i < stack.size)
+	while (i < data.stack_a.length)
 	{
-		printf("%d\n", stack.nums[i]);
+		printf("%d\n", data.stack_a.nums[i]);
 		i++;
 	}
+	printf("Size of stack a: %d\n", data.stack_a.length);
+
+	rotate(&data.stack_a);
+
+	i = 0;
+	while (i < data.stack_a.length)
+	{
+		printf("%d\n", data.stack_a.nums[i]);
+		i++;
+	}
+
 	return (0);
 }
