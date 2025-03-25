@@ -21,17 +21,22 @@ int	main(int argc, char **argv)
 	i = 0;
 	while (i < data.stack_a.length)
 	{
-		printf("%d\n", data.stack_a.nums[i]);
+		printf("%d ", data.stack_a.nums[i]);
 		i++;
 	}
 	printf("Size of stack a: %d\n", data.stack_a.length);
 
-	rotate(&data.stack_a);
+	i = 0;
+	while (i < data.stack_a.length - 1)
+	{
+		swap(&data.stack_a);
+		i++;
+	}
 
 	i = 0;
 	while (i < data.stack_a.length)
 	{
-		printf("%d\n", data.stack_a.nums[i]);
+		printf("%d ", data.stack_a.nums[i]);
 		i++;
 	}
 
