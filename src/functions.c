@@ -6,7 +6,7 @@
 /*   By: dsemenov <dsemenov@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/28 14:11:42 by dsemenov          #+#    #+#             */
-/*   Updated: 2025/03/31 18:40:30 by dsemenov         ###   ########.fr       */
+/*   Updated: 2025/03/31 19:06:46 by dsemenov         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,6 @@ void	push(t_stack *from, t_stack *to)
 	to->length++;
 	ft_memmove(&from->nums[0], &from->nums[1], from->capacity *sizeof(int)- sizeof(int));
 	from->length--;
-	ft_putendl_fd("p%c", to->letter);
 }
 
 void	rotate(t_stack *stack)

@@ -25,5 +25,6 @@ void	rotate(t_stack *stack);
 void	reverse_rotate(t_stack *stack);
 void	push(t_stack *from, t_stack *to);
 void  print_stacks(t_data *data);
+t_result  parse(int argc, char **argv);
 
 #endif

@@ -6,7 +6,7 @@
 /*   By: dsemenov <dsemenov@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/27 18:46:05 by dsemenov          #+#    #+#             */
-/*   Updated: 2025/03/31 18:32:46 by dsemenov         ###   ########.fr       */
+/*   Updated: 2025/03/31 19:25:14 by dsemenov         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,15 +60,11 @@ int	main(int argc, char **argv)
 	t_data	data;
 
 	if (data_init(&data, argc - 1) == FAILURE)
-    return (-1);
-  //TODO Parsing, check args
+    return (1);
+  if (parse(argc - 1, &argv[1]) == FAILURE)
+    return (1);
   stack_fill_from_argv(&data, argv);
   print_stacks(&data);
-
-	push(&data.stack_a, &data.stack_b);
-	push(&data.stack_a, &data.stack_b);
-	push(&data.stack_a, &data.stack_b);
-	push(&data.stack_a, &data.stack_b);
 
 	printf("\n");
   print_stacks(&data);
