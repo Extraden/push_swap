@@ -24,5 +24,6 @@ void	swap(t_stack *stack);
 void	rotate(t_stack *stack);
 void	reverse_rotate(t_stack *stack);
 void	push(t_stack *from, t_stack *to);
+void  print_stacks(t_data *data);
 
 #endif
