@@ -6,7 +6,7 @@
 /*   By: dsemenov <dsemenov@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/27 18:46:05 by dsemenov          #+#    #+#             */
-/*   Updated: 2025/04/01 11:21:48 by dsemenov         ###   ########.fr       */
+/*   Updated: 2025/04/02 18:55:45 by dsemenov         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,30 @@
 #include "libft.h"
 #include <stdlib.h>
 #include <stdio.h>
+
+static t_result has_no_duplicates(t_stack *stack)
+{
+  size_t  i;
+  size_t  j;
+  int     first_num;
+  int     second_num;
+
+  i = 0;
+  while (i < stack->length - 1)
+  {
+    first_num = stack->nums[i];
+    j = i + 1;
+    while (j < stack->length)
+    {
+      second_num = stack->nums[j];
+      if (first_num == second_num)
+        return (FAILURE);
+      j++;
+    }
+    i++;
+  }
+  return (SUCCESS);
+}
 
 static t_result  stack_destroy(t_stack *stack)
 {
@@ -64,6 +88,11 @@ int	main(int argc, char **argv)
   if (parse(argc - 1, &argv[1]) == FAILURE)
     return (1);
   stack_fill_from_argv(&data, argv);
+  if (has_no_duplicates(&data.stack_a) == FAILURE)
+  {
+    ft_putendl_fd("Error", 1);
+    return (1);
+  }
   print_stacks(&data);
   swap(&data.stack_a);
   push(&data.stack_a, &data.stack_b);

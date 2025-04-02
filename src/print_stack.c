@@ -6,16 +6,17 @@
 /*   By: dsemenov <dsemenov@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/31 18:11:11 by dsemenov          #+#    #+#             */
-/*   Updated: 2025/03/31 18:33:56 by dsemenov         ###   ########.fr       */
+/*   Updated: 2025/04/02 18:50:56 by dsemenov         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
+#include <stddef.h>
 #include <stdio.h>
 
 void  print_stacks(t_data *data)
 {
-  int i;
+  size_t i;
 
   printf("Stack a: ");
 	i = 0;
@@ -26,7 +27,7 @@ void  print_stacks(t_data *data)
 	}
 	printf("\n");
 
-	printf("Length of stack: %d\n", data->stack_a.length);
+	printf("Length of stack: %zu\n", data->stack_a.length);
 	printf("\n");
 	printf("Stack b: ");
 	i = 0;
@@ -37,7 +38,7 @@ void  print_stacks(t_data *data)
 	}
 	printf("\n");
 
-	printf("Length of stack: %d\n", data->stack_b.length);
+	printf("Length of stack: %zu\n", data->stack_b.length);
 	printf("\n");
 	printf("------------------------------------------------------------\n\n");
 

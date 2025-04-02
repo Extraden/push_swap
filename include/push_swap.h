@@ -1,6 +1,7 @@
 #ifndef PUSH_SWAP_H
 # define PUSH_SWAP_H
 
+#include <stddef.h>
 typedef enum	e_result {
 	SUCCESS = 0,
 	FAILURE = 1,
@@ -9,7 +10,7 @@ typedef enum	e_result {
 typedef struct	s_stack
 {
 	int	*nums;
-	int	length;
+	size_t	length;
 	int	capacity;
 	char letter;
 } t_stack;
