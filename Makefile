@@ -1,7 +1,7 @@
 # Compiler and flags
 
 CC = cc
-CFLAGS = -Wall -Wextra -Werror
+CFLAGS = -Wall -Wextra -Werror -g
 
 # Directories
 
@@ -12,7 +12,7 @@ LIBFT_DIR = libft/
 
 # Files
 
-SRCS = functions.c push_swap.c print_stack.c parse.c
+SRCS = functions.c push_swap.c print_stack.c utils.c
 OBJS = $(SRCS:%.c=$(OBJ_DIR)%.o)
 DEPS = $(OBJS:%.o=%.d)
 INCLUDES = -I$(INCLUDE_DIR) -I$(LIBFT_DIR)

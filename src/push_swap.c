@@ -6,7 +6,7 @@
 /*   By: dsemenov <dsemenov@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/27 18:46:05 by dsemenov          #+#    #+#             */
-/*   Updated: 2025/04/02 18:55:45 by dsemenov         ###   ########.fr       */
+/*   Updated: 2025/04/03 19:42:03 by dsemenov         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,7 +41,7 @@ static t_result has_no_duplicates(t_stack *stack)
 
 static t_result  stack_destroy(t_stack *stack)
 {
-  free(stack);
+  free(stack->nums);
   return (SUCCESS);
 }
 
@@ -73,7 +73,8 @@ static t_result stack_fill_from_argv(t_data *data, char **argv)
 	i = 0;
 	while (i < data->stack_a.capacity)
 	{
-		data->stack_a.nums[i] = ft_atoi(argv[i + 1]);
+		if (ft_atoi_checked(argv[i + 1], &data->stack_a.nums[i]) == FAILURE)
+      return (FAILURE);
 		i++;
 	}
   return (SUCCESS);
@@ -85,9 +86,11 @@ int	main(int argc, char **argv)
 
 	if (data_init(&data, argc - 1) == FAILURE)
     return (1);
-  if (parse(argc - 1, &argv[1]) == FAILURE)
+  if (stack_fill_from_argv(&data, argv) == FAILURE)
+  {
+    ft_putendl_fd("Error", 1);
     return (1);
-  stack_fill_from_argv(&data, argv);
+  }
   if (has_no_duplicates(&data.stack_a) == FAILURE)
   {
     ft_putendl_fd("Error", 1);
