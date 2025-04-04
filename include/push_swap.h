@@ -28,5 +28,14 @@ void	rotate(t_stack *stack);
 void	reverse_rotate(t_stack *stack);
 void	push(t_stack *from, t_stack *to);
 void  print_stacks(t_data *data);
+void  sa(t_data *data);
+void  sb(t_data *data);
+void  ss(t_data *data);
+void  ra(t_data *data);
+void  rb(t_data *data);
+void  rr(t_data *data);
+void  rra(t_data *data);
+void  rrb(t_data *data);
+void  rrr(t_data *data);
 
 #endif
