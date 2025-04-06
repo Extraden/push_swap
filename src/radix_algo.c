@@ -28,3 +28,19 @@ t_result  is_sorted(t_stack *stack)
   return (SUCCESS);
 }
 
+void  radix_algo(t_data *data)
+{
+  size_t i;
+
+  i = 0;
+  while (i < data->stack_a.length)
+  {
+      if ((data->stack_a.nums[0] & 1) == 0)
+      {
+	      pb(data);
+//	      i++;
+      }
+      ra(data);
+      i++;
+  }
+}

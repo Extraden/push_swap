@@ -103,10 +103,8 @@ int	main(int argc, char **argv)
 		return (1);
 	}
 	print_stacks(&data);
-	// swap(&data.stack_a);
-	// push(&data.stack_a, &data.stack_b);
-	// printf("\n");
-	// print_stacks(&data);
+	radix_algo(&data);
+	print_stacks(&data);
 	stack_destroy(&data.stack_a);
 	stack_destroy(&data.stack_b);
 	return (0);

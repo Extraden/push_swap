@@ -37,5 +37,8 @@ void  rr(t_data *data);
 void  rra(t_data *data);
 void  rrb(t_data *data);
 void  rrr(t_data *data);
+void  pa(t_data *data);
+void  pb(t_data *data);
+void  radix_algo(t_data *data);
 
 #endif
