@@ -28,19 +28,35 @@ t_result  is_sorted(t_stack *stack)
   return (SUCCESS);
 }
 
+void	push_all_to_a(t_data *data)
+{
+	size_t	i;
+
+	i = 0;
+	while (i < data->stack_a.length)
+	{
+		pa(data);
+		i++;
+	}
+}
+
 void  radix_algo(t_data *data)
 {
   size_t i;
-
+  size_t tmp_length;
+  
+  tmp_length = data->stack_a.length;
   i = 0;
-  while (i < data->stack_a.length)
+  while (i < tmp_length)
   {
       if ((data->stack_a.nums[0] & 1) == 0)
       {
 	      pb(data);
-//	      i++;
+	      tmp_length--;
+	      continue;
       }
       ra(data);
       i++;
   }
+  push_all_to_a(data);
 }
