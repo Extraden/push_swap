@@ -6,7 +6,7 @@
 /*   By: dsemenov <dsemenov@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/27 18:46:05 by dsemenov          #+#    #+#             */
-/*   Updated: 2025/04/07 17:33:46 by dsemenov         ###   ########.fr       */
+/*   Updated: 2025/04/07 19:59:49 by dsemenov         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,6 +23,8 @@ static t_result	has_no_duplicates(t_stack *stack)
 	int		first_num;
 	int		second_num;
 
+  if (stack->length == 0)
+    return (FAILURE);
 	i = 0;
 	while (i < stack->length - 1)
 	{
@@ -54,9 +56,6 @@ t_result	stack_init(t_stack *stack, int capacity)
 	stack->length = capacity;
 	stack->nums = malloc(capacity * sizeof(int));
 	if (stack->nums == NULL)
-		return (FAILURE);
-	stack->indices = malloc(capacity * sizeof(int));
-	if (stack->indices == NULL)
     return (FAILURE);
   i = 0;
   while (i < stack->capacity)
@@ -115,8 +114,9 @@ int	main(int argc, char **argv)
 		return (1);
 	}
 	print_stacks(&data);
-	create_indices(&data.stack_a);
-	//radix_algo(&data);
+	if (create_indices(&data.stack_a) == FAILURE)
+    return (1);
+	radix_algo(&data);
 	print_stacks(&data);
 	stack_destroy(&data.stack_a);
 	stack_destroy(&data.stack_b);

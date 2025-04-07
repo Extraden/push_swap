@@ -6,7 +6,7 @@
 /*   By: dsemenov <dsemenov@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/06 19:53:21 by dsemenov          #+#    #+#             */
-/*   Updated: 2025/04/07 17:49:20 by dsemenov         ###   ########.fr       */
+/*   Updated: 2025/04/07 19:52:25 by dsemenov         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,9 +43,7 @@ void sort_stack(t_stack *stack)
 	}	
 }
 
-#include <stdio.h>
-
-void	create_indices(t_stack *stack)
+t_result	create_indices(t_stack *stack)
 {
 	size_t	i;
   size_t  j;
@@ -53,10 +51,9 @@ void	create_indices(t_stack *stack)
 
   ft_memset(&sorted_stack, 0, sizeof(t_stack));
 	if (stack_init(&sorted_stack, stack->capacity) == FAILURE)
-		exit(1);
+    return (FAILURE);
 	ft_memcpy(sorted_stack.nums, stack->nums, stack->length * sizeof(int));
 	sort_stack(&sorted_stack);
-	printf("\n\n\n Sorted stack:               Index:\n");
 	 i = 0;
 	 while (i < stack->length)
 	 {
@@ -64,9 +61,14 @@ void	create_indices(t_stack *stack)
 	   while (j < sorted_stack.length)
 	   {
 	     if (stack->nums[i] == sorted_stack.nums[j])
+      {
 	       stack->nums[i] = j;
+        break;
+      }
 	     j++;
 	   }
 	   i++;
 	 }
+    free(sorted_stack.nums);
+  return (SUCCESS);
 }

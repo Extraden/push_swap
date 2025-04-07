@@ -6,7 +6,7 @@
 /*   By: dsemenov <dsemenov@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/04 19:50:25 by dsemenov          #+#    #+#             */
-/*   Updated: 2025/04/07 12:20:03 by dsemenov         ###   ########.fr       */
+/*   Updated: 2025/04/07 20:03:39 by dsemenov         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,7 @@ static t_result  is_sorted(t_stack *stack)
   return (SUCCESS);
 }
 
-void	push_all_to_a(t_data *data)
+static void	push_all_to_a(t_data *data)
 {
 	size_t	i;
 
@@ -43,10 +43,12 @@ void	push_all_to_a(t_data *data)
 void  radix_algo(t_data *data)
 {
   size_t i;
+  size_t j;
   size_t tmp_length;
   
   tmp_length = data->stack_a.length;
   i = 0;
+  j = 0;
   is_sorted(&data->stack_a);
   while (i < tmp_length)
   {
@@ -60,4 +62,16 @@ void  radix_algo(t_data *data)
       i++;
   }
   push_all_to_a(data);
+  i = 0;
+  while (i < tmp_length)
+  {
+      if ((data->stack_a.nums[0] >> 1 & 1) == 0)
+      {
+	      pb(data);
+	      tmp_length--;
+	      continue;
+      }
+      ra(data);
+      i++;
+  }
 }
