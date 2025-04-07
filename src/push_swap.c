@@ -6,7 +6,7 @@
 /*   By: dsemenov <dsemenov@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/27 18:46:05 by dsemenov          #+#    #+#             */
-/*   Updated: 2025/04/07 19:59:49 by dsemenov         ###   ########.fr       */
+/*   Updated: 2025/04/07 23:10:20 by dsemenov         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -113,11 +113,11 @@ int	main(int argc, char **argv)
 		ft_putendl_fd("Error", 1);
 		return (1);
 	}
-	print_stacks(&data);
+	//print_stacks(&data);
 	if (create_indices(&data.stack_a) == FAILURE)
     return (1);
 	radix_algo(&data);
-	print_stacks(&data);
+	//print_stacks(&data);
 	stack_destroy(&data.stack_a);
 	stack_destroy(&data.stack_b);
 	return (0);

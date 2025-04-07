@@ -12,8 +12,7 @@ typedef struct	s_stack
 {
 	int	*nums;
 	size_t	length;
-	int	capacity;
-	char letter;
+	size_t	capacity;
 } t_stack;
 
 typedef struct	s_data
@@ -40,6 +39,7 @@ void  rrr(t_data *data);
 void  pa(t_data *data);
 void  pb(t_data *data);
 void  radix_algo(t_data *data);
-void  sort_stack(t_stack *stack);
+t_result	create_indices(t_stack *stack);
+t_result	stack_init(t_stack *stack, int capacity);
 
 #endif
