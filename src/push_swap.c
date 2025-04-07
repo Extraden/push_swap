@@ -6,12 +6,13 @@
 /*   By: dsemenov <dsemenov@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/27 18:46:05 by dsemenov          #+#    #+#             */
-/*   Updated: 2025/04/04 17:46:45 by dsemenov         ###   ########.fr       */
+/*   Updated: 2025/04/07 17:33:46 by dsemenov         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 #include "push_swap.h"
+#include <stddef.h>
 #include <stdio.h>
 #include <stdlib.h>
 
@@ -45,13 +46,24 @@ static t_result	stack_destroy(t_stack *stack)
 	return (SUCCESS);
 }
 
-static t_result	stack_init(t_stack *stack, int capacity)
+t_result	stack_init(t_stack *stack, int capacity)
 {
+  size_t  i;
+
 	stack->capacity = capacity;
 	stack->length = capacity;
 	stack->nums = malloc(capacity * sizeof(int));
 	if (stack->nums == NULL)
 		return (FAILURE);
+	stack->indices = malloc(capacity * sizeof(int));
+	if (stack->indices == NULL)
+    return (FAILURE);
+  i = 0;
+  while (i < stack->capacity)
+  {
+    stack->nums[i] = i;
+    i++;
+  }
 	return (SUCCESS);
 }
 
@@ -70,7 +82,7 @@ static t_result	data_init(t_data *data, int capacity)
 
 static t_result	stack_fill_from_argv(t_data *data, char **argv)
 {
-	int	i;
+	size_t	i;
 
 	i = 0;
 	while (i < data->stack_a.capacity)
@@ -103,9 +115,8 @@ int	main(int argc, char **argv)
 		return (1);
 	}
 	print_stacks(&data);
-	radix_algo(&data);
-	print_stacks(&data);
-	sort_stack(&data.stack_a);
+	create_indices(&data.stack_a);
+	//radix_algo(&data);
 	print_stacks(&data);
 	stack_destroy(&data.stack_a);
 	stack_destroy(&data.stack_b);

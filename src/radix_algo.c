@@ -6,7 +6,7 @@
 /*   By: dsemenov <dsemenov@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/04 19:50:25 by dsemenov          #+#    #+#             */
-/*   Updated: 2025/04/04 20:18:29 by dsemenov         ###   ########.fr       */
+/*   Updated: 2025/04/07 12:20:03 by dsemenov         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,7 +39,6 @@ void	push_all_to_a(t_data *data)
 		i++;
 	}
 }
-
 
 void  radix_algo(t_data *data)
 {

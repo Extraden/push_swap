@@ -6,7 +6,7 @@
 /*   By: dsemenov <dsemenov@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/31 18:11:11 by dsemenov          #+#    #+#             */
-/*   Updated: 2025/04/02 18:50:56 by dsemenov         ###   ########.fr       */
+/*   Updated: 2025/04/07 09:25:36 by dsemenov         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,9 +16,10 @@
 
 void  print_stacks(t_data *data)
 {
-  size_t i;
+	size_t i;
 
-  printf("Stack a: ");
+	printf("\n\n");
+	printf("Stack a: ");
 	i = 0;
 	while (i < data->stack_a.length)
 	{
