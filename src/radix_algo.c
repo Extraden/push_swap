@@ -13,7 +13,7 @@
 #include "push_swap.h"
 #include <stddef.h>
 
-t_result  is_sorted(t_stack *stack)
+static t_result  is_sorted(t_stack *stack)
 {
   size_t i;
 
@@ -40,6 +40,7 @@ void	push_all_to_a(t_data *data)
 	}
 }
 
+
 void  radix_algo(t_data *data)
 {
   size_t i;
@@ -47,6 +48,7 @@ void  radix_algo(t_data *data)
   
   tmp_length = data->stack_a.length;
   i = 0;
+  is_sorted(&data->stack_a);
   while (i < tmp_length)
   {
       if ((data->stack_a.nums[0] & 1) == 0)

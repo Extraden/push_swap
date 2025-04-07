@@ -40,5 +40,6 @@ void  rrr(t_data *data);
 void  pa(t_data *data);
 void  pb(t_data *data);
 void  radix_algo(t_data *data);
+void  sort_stack(t_stack *stack);
 
 #endif

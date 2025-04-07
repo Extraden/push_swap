@@ -12,7 +12,7 @@ LIBFT_DIR = libft/
 
 # Files
 
-SRCS = functions.c push_swap.c print_stack.c utils.c radix_algo.c pushes.c rotates.c reverse_rotates.c swaps.c
+SRCS = functions.c push_swap.c print_stack.c utils.c radix_algo.c pushes.c rotates.c reverse_rotates.c swaps.c stack_preparation.c
 OBJS = $(SRCS:%.c=$(OBJ_DIR)%.o)
 DEPS = $(OBJS:%.o=%.d)
 INCLUDES = -I$(INCLUDE_DIR) -I$(LIBFT_DIR)

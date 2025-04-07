@@ -105,6 +105,8 @@ int	main(int argc, char **argv)
 	print_stacks(&data);
 	radix_algo(&data);
 	print_stacks(&data);
+	sort_stack(&data.stack_a);
+	print_stacks(&data);
 	stack_destroy(&data.stack_a);
 	stack_destroy(&data.stack_b);
 	return (0);
