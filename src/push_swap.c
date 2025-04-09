@@ -6,7 +6,7 @@
 /*   By: dsemenov <dsemenov@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/27 18:46:05 by dsemenov          #+#    #+#             */
-/*   Updated: 2025/04/09 17:35:00 by dsemenov         ###   ########.fr       */
+/*   Updated: 2025/04/09 19:44:30 by dsemenov         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -101,6 +101,8 @@ int	main(int argc, char **argv)
 {
 	t_data	data;
 
+  if (argc == 1)
+    return (0);
 	if (data_init(&data, argc - 1) == FAILURE)
 		return (1);
 	if (stack_fill_from_argv(&data, argv) == FAILURE)
