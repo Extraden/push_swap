@@ -6,7 +6,7 @@
 /*   By: dsemenov <dsemenov@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/04 19:50:25 by dsemenov          #+#    #+#             */
-/*   Updated: 2025/04/07 23:25:33 by dsemenov         ###   ########.fr       */
+/*   Updated: 2025/04/09 12:24:59 by dsemenov         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,7 +47,7 @@ void  radix_algo(t_data *data)
     i = 0;
   while (i < tmp_length)
   {
-      if ((data->stack_a.nums[0] >> j & 1) == 0)
+      if (((data->stack_a.nums[0] >> j) & 1) == 0)
       {
 	      pb(data);
 	      tmp_length--;

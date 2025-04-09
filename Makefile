@@ -40,9 +40,8 @@ fclean: clean
 	rm -rf $(NAME)
 	make -C $(LIBFT_DIR) fclean
 
-re:
-	fclean all
+re: fclean all
 
 -include $(DEPS)
 
-.PHONY: all libs clean fclean re
+.PHONY: all libs fclean clean re
